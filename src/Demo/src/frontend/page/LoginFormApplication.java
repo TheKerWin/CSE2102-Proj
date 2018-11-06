@@ -1,3 +1,4 @@
+package frontend.page;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,6 +14,8 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 public class LoginFormApplication extends Application {
+	
+	String name, email, password; 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -73,11 +76,13 @@ public class LoginFormApplication extends Application {
         // Add Name Label
         Label nameLabel = new Label("Full Name : ");
         gridPane.add(nameLabel, 0,1);
+        
 
         // Add Name Text Field
         TextField nameField = new TextField();
         nameField.setPrefHeight(40);
         gridPane.add(nameField, 1,1);
+        
 
 
         // Add Email Label
@@ -85,9 +90,10 @@ public class LoginFormApplication extends Application {
         gridPane.add(emailLabel, 0, 2);
 
         // Add Email Text Field
-        TextField emailField = new TextField();
+        final TextField emailField = new TextField();
         emailField.setPrefHeight(40);
         gridPane.add(emailField, 1, 2);
+       
 
         // Add Password Label
         Label passwordLabel = new Label("Password : ");
@@ -97,6 +103,7 @@ public class LoginFormApplication extends Application {
         PasswordField passwordField = new PasswordField();
         passwordField.setPrefHeight(40);
         gridPane.add(passwordField, 1, 3);
+        //String password = passwordField.getPromptText();
 
         // Add Submit Button
         Button submitButton = new Button("Submit");
@@ -110,6 +117,8 @@ public class LoginFormApplication extends Application {
         submitButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+            	
+            	//password = passwordField.getText().toString();
                 if(nameField.getText().isEmpty()) {
                     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error!", "Please enter your name");
                     return;
@@ -124,6 +133,9 @@ public class LoginFormApplication extends Application {
                 }
 
                 showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Registration Successful!", "Welcome " + nameField.getText());
+                email = emailField.getText().toString();
+            	System.out.printf("email:", email);
+            	System.out.printf("email2:", emailField.getText().toString());
             }
         });
     }
