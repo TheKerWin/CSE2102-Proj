@@ -49,16 +49,6 @@ public class CSVInput {
                     ///System.out.println("Name : " + csvHospital.getName());
                     ///System.out.println("==========================");
                 }
-
-                /** For testing
-                 int counter = 0;
-                 for (CSVHospital entry : hospitals){
-                 System.out.println("Name : " + entry.getName());
-                 System.out.println("==========================");
-                 counter++;
-                 }
-                 System.out.println(counter);
-                 **/
             }
 
             catch (IOException e) {

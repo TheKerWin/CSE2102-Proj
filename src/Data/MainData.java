@@ -1,10 +1,8 @@
 package Data;
 
-import java.io.IOException;
-
 public class MainData {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
 
         int count = 0;
 

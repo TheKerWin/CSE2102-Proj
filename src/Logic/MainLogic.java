@@ -3,7 +3,8 @@ package Logic;
 public class MainLogic {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
 
+        Testing t1 = new Testing();
+        t1.runTest();
+    }
 }
