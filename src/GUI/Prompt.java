@@ -1,42 +1,45 @@
 package GUI;
 
-import Data.CSVHospital;
-import Data.CSVInput;
-import Logic.Filter;
-
-import java.util.ArrayList;
+import Controller.Controller;
 import java.util.Scanner;
 
 public class Prompt {
 
     public void runPrompt(){
-        CSVInput c1 = new CSVInput();
+
+        ///GUI should only implement a new instance of Controller
+        Controller c1 = new Controller();
+
         Scanner kbd = new Scanner(System.in);
-        Filter f1 = new Filter();
         int select = 0;
+        boolean run = true;
 
-        System.out.println("Select how to test");
-        System.out.println("1.) Rating Lower than");
-        System.out.println("2.) Rating Greater than");
-        select = kbd.nextInt();
+        System.out.println("Set CSV File Location: ");
+        c1.setCSVLocation(kbd.next());
+        System.out.println("======Processing CSV File=======");
+        c1.IntakeCSV();
 
-        if (select == 1){
-            System.out.print("Enter File address of CSV file: ");
-            c1.setkbdFilePath();
-            System.out.println("Enter rating: ");
-            int tempRating = kbd.nextInt();
+        while (run) {
+            System.out.println("Select how to test: ");
+            System.out.println("1.) Filter out ratings less than");
+            System.out.println("2.) Filter out ratings less than");
+            select = kbd.nextInt();
 
-            c1.generateHospitalList();
+            if (select == 1) {
+                System.out.print("Filter out ratings Less than: ");
+                c1.filterOutLowerRating(kbd.nextInt());
+                c1.printHospitals();
+            }
 
-            ArrayList<CSVHospital> tempHosp = f1.filterRatingLowerThan(c1.getHospitalList() , tempRating);
+            if (select == 2) {
+                c1.filterOutLowerRating(3);
+                c1.printHospitals();
+            }
 
-            for (CSVHospital x : tempHosp){
-                System.out.println(x.getName());
-                System.out.println(x.getRating());
-                System.out.println("==============");
+            if (select == 0){
+                run = false;
             }
         }
-
     }
 
 }

@@ -17,7 +17,6 @@ public class CSVInput {
 
     private ArrayList<CSVHospital> hospitals = new ArrayList<CSVHospital>();
     private String filePath;
-    ///private String filePath = "C:\\Users\\Sonny\\Desktop\\HospitalGeneralInformation.csv";
 
 
 
