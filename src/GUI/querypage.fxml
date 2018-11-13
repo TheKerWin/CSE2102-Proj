@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource ../../../../../BasicApplication/BasicApplication_en.properties?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="frontend.page.Controller">
+  <children>
+    <MenuBar useSystemMenuBar="false" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Back">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Back" />
+            <MenuItem mnemonicParsing="false" text="Return to Homepage" />
+            <MenuItem mnemonicParsing="false" text="Logoff" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Attribute">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Provider ID" />
+            <MenuItem mnemonicParsing="false" text="Hospital Name" />
+            <MenuItem mnemonicParsing="false" text="Address" />
+            <MenuItem mnemonicParsing="false" text="City" />
+            <MenuItem mnemonicParsing="false" text="State" />
+            <MenuItem mnemonicParsing="false" text="Zip Code" />
+            <MenuItem mnemonicParsing="false" text="County" />
+            <MenuItem mnemonicParsing="false" text="Type of Hospital" />
+            
+            <Menu mnemonicParsing="false" text="%menu.title.open.recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="%menu.title.close" />
+            <MenuItem mnemonicParsing="false" text="%menu.title.revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="%menu.title.quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Sort By">
+          <items>
+            <MenuItem mnemonicParsing="false" text="%menu.title.undo" />
+            <MenuItem mnemonicParsing="false" text="%menu.title.redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Mortality Rate" />
+            <MenuItem mnemonicParsing="false" text="Readmission national comparison" />
+            <MenuItem mnemonicParsing="false" text="Safety of care national comparison" />
+            <MenuItem mnemonicParsing="false" text="Timeliness of care national comparison" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="%menu.title.select.all" />
+            <MenuItem mnemonicParsing="false" text="%menu.title.unselect.all" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Method">
+          <items>
+            <MenuItem mnemonicParsing="false" text="%menu.title.about" />
+          </items>
+        </Menu>
+      </menus>
+      <VBox.margin>
+        <Insets />
+      </VBox.margin>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" layoutX="58.0" layoutY="177.0" prefWidth="524.0" style="&#10;" text="%label.text.drag.here" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+        <SplitPane dividerPositions="0.6005434782608695" focusTraversable="true" orientation="VERTICAL" prefHeight="370.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+              <children>
+                <SplitPane dividerPositions="0.6242138364779874" focusTraversable="true" prefHeight="218.0" prefWidth="638.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <items>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                      <children>
+                        <ImageView fitHeight="217.99998474121094" fitWidth="716.4318787182871" focusTraversable="false" layoutX="0.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="4.0">
+                          <image>
+                            <Image url="@../../../../../OneDrive/Documents/CSE2102/MaterialDesign.jpeg" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </AnchorPane>
+                  </items>
+                </SplitPane>
+              </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+              <children>
+                <Button layoutX="527.0" layoutY="86.0" mnemonicParsing="false" text="Run Query" />
+                <Label layoutX="38.0" layoutY="14.0" text="How to use:" />
+              </children>
+            </AnchorPane>
+          </items>
+        </SplitPane>
+      </children>
+    </AnchorPane>
+  </children>
+  <stylesheets>
+    <URL value="@../../../../../BasicApplication/BasicApplication.css" />
+  </stylesheets>
+</VBox>
