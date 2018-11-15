@@ -29,3 +29,4 @@ CSE2102-Proj.iml
 #Kerwin's Git Ignore
 .classpath
 .project
+/bin/

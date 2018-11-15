@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="600.0">
+      <top>
+        <MenuBar>
+          <menus>
+            <Menu mnemonicParsing="false" text="Back">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Back" />
+                <MenuItem mnemonicParsing="false" text="Return to Homepage" />
+                <MenuItem mnemonicParsing="false" text="Logoff" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Attribute">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Provider ID" />
+                <MenuItem mnemonicParsing="false" text="Hospital Name" />
+                <MenuItem mnemonicParsing="false" text="Address" />
+                <MenuItem mnemonicParsing="false" text="City" />
+                <MenuItem mnemonicParsing="false" text="State" />
+                <MenuItem mnemonicParsing="false" text="Zip Code" />
+                <MenuItem mnemonicParsing="false" text="County" />
+                <MenuItem mnemonicParsing="false" text="Type of Hopsital" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" text="Close" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Sort by">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Undo" />
+                <MenuItem mnemonicParsing="false" text="Redo" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" text="Safety of Care National Comparison" />
+                <MenuItem mnemonicParsing="false" text="Mortality Rate" />
+                <MenuItem mnemonicParsing="false" text="Readmission National Comparison" />
+                <MenuItem mnemonicParsing="false" text="Timeliness of Care National Comparison" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

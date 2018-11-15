@@ -1,4 +1,4 @@
-package frontend.page;
+package GUI;
 import javafx.application.Application;
 
 import javafx.event.ActionEvent;
@@ -20,20 +20,20 @@ public class HomePage extends Application{
 	@Override
 	public void start(Stage SecondStage) {
 		try {
-		
-		Parent root = FXMLLoader.load(getClass().getResource("querypage.fxml"));
-		Scene scene = new Scene(root, 300, 275);	
+//		
+//		Parent root = FXMLLoader.load(getClass().getResource("querypage.fxml"));
+//		Scene scene = new Scene(root, 300, 275);	
 
 		SecondStage.setTitle("Hospital Query");
 //		SecondStage.setScene(scene);
 //		SecondStage.show();
 
 		// Create the registration form grid pane
-		//GridPane gridPane = CreateHomepagePane();
+		GridPane gridPane = CreateHomepagePane();
 		// Add UI controls to the registration form grid pane
-		//addUIControls(gridPane);
+		addUIControls(gridPane);
 		// Create a scene with registration form grid pane as the root node
-		///Scene scene = new Scene(gridPane, 800, 500);
+		Scene scene = new Scene(gridPane, 800, 500);
 		// Set the scene in primary stage	
 		SecondStage.setScene(scene);
 //
