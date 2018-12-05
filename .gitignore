@@ -25,6 +25,7 @@ hs_err_pid*
 #Sonny's Git Ignore
 .idea/
 CSE2102-Proj.iml
+/out/
 
 #Kerwin's Git Ignore
 .classpath

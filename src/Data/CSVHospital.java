@@ -3,6 +3,13 @@ package Data;
 import com.opencsv.bean.CsvBindByName;
 
 public class CSVHospital {
+
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
+
     @CsvBindByName(column = "Provider ID")
     private String providerID;
 
