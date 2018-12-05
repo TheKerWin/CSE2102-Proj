@@ -41,6 +41,11 @@ public class Filter {
                         if (h.getType().toLowerCase().contains(value.toLowerCase()))
                             result.add(h);
                 }
+                case "Hospital Ownership": {
+                    if (h.getOwnership() != null)
+                        if (h.getOwnership().toLowerCase().contains(value.toLowerCase()))
+                            result.add(h);
+                }
 
 
             }

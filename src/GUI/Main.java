@@ -300,8 +300,27 @@ public class Main extends Application {
         grid.setPadding(new Insets(20, 150, 10, 10));
 
         ChoiceBox attribute = new ChoiceBox(FXCollections.observableArrayList(
-                "Hospital Type", "Second", "Third")
-        );
+                "Provider ID",
+                "Hospital Name",
+                "Address",
+                "City",
+                "State",
+                "ZIP Code",
+                "County Name",
+                "Phone Number",
+                "Hospital Type",
+                "Hospital Ownership",
+                "Emergency Services",
+                "Meets criteria for meaningful use of EHRs	Hospital",
+                "Overall Rating",
+                "Mortality national comparison",
+                "Safety of care national comparison",
+                "Readmission national comparison",
+                "Patient experience national comparison",
+                "Effectiveness of care national comparison",
+                "Timeliness of care national comparison",
+                "Efficient use of medical imaging national comparison"
+        ));
 
         TextField value = new TextField();
         value.setPromptText("Value");
