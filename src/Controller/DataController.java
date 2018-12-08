@@ -2,9 +2,9 @@ package Controller;
 
 import Data.CSVHospital;
 import Data.CSVInput;
-import Logic.Filter;
-import Logic.Sort;
-import Logic.Testing;
+import Logic.*;
+import javafx.scene.chart.BarChart;
+
 import java.util.ArrayList;
 
 public class DataController {
@@ -14,7 +14,9 @@ public class DataController {
     private CSVInput csv1 = new CSVInput();
     private Filter f1 = new Filter();
     private Sort s1 = new Sort();
+    private MathLogic m1 = new MathLogic();
     private Testing t1 = new Testing();
+    private Graph g1 = new Graph();
 
     private ArrayList<CSVHospital> hospitals;
     private ArrayList<CSVHospital> modHospitals;
@@ -68,6 +70,24 @@ public class DataController {
 
     public void filterOutRatingGreaterOrEqual(int x){
         this.modHospitals = f1.filterOutRatingGreaterOrEqual(this.modHospitals , x);
+    }
+
+
+
+    ///Calculating API methods
+    public double averageRating(){
+        return m1.averageRating(this.modHospitals);
+    }
+
+    public int total(){
+        return m1.total(this.modHospitals);
+    }
+
+
+
+    ///Graph API Methods
+    public BarChart graphRatings(){
+        return g1.graphRatings(this.modHospitals);
     }
 
 

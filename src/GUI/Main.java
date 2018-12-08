@@ -22,6 +22,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
@@ -43,7 +45,11 @@ public class Main extends Application {
     public Main(){
         c1 = new DataController();
         table = new TableView<>();
+
         logging = new TextArea();
+        logging.setMaxWidth(300);
+        logging.setMaxHeight(150);
+        logging.setEditable(false);
 
 
         ///System.out.println("Set CSV File Location: ");
@@ -189,12 +195,17 @@ public class Main extends Application {
             @Override public void handle(ActionEvent e) {
                 ///System.out.println("Testing CSVInput button");
 
+
+
                 // Get the response value (with lambda expression).
                 Optional<String> result = csvInputDialog.showAndWait();
                 result.ifPresent(name -> c1.setCSVLocation(result.get()));
                 c1.intakeCSV();
                 data = FXCollections.observableArrayList(c1.getModifiedlHospitals());
+                logging.appendText("---Loading CSV File---" + "\n");
                 table.setItems(data);
+                logging.appendText("---Load Successful---" + "\n");
+                logging.appendText( c1.total() + " Hospitals Loaded" + "\n");
 
                 ///c1.filterOutRatingLowerOrEqual(3);
                 ///data.removeAll(data);
@@ -282,6 +293,56 @@ public class Main extends Application {
 
 
 
+
+        ///Calculate Averages button
+        Button averageButton = new Button("Average");
+        averageButton.setMaxWidth(Double.MAX_VALUE);
+        averageButton.setMaxWidth(Double.MAX_VALUE);
+        averageButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                logging.appendText("The average rating is: " +c1.averageRating() + "\n");
+                ///System.out.println("Averages button works");
+            }
+        });
+
+
+
+
+        ///Calculate Total button
+        Button totalButton = new Button("Total");
+        totalButton.setMaxWidth(Double.MAX_VALUE);
+        totalButton.setMaxWidth(Double.MAX_VALUE);
+        totalButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                logging.appendText("The total number of hospitals is: " +c1.total() + "\n");
+                ///System.out.println("Averages button works");
+            }
+        });
+
+
+
+        ///GraphRatingsPerState button and diolog handling
+        Button btn = new Button();
+        btn.setText("Graph");
+        btn.setOnAction(
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        Stage dialog = new Stage();
+                        dialog.initModality(Modality.APPLICATION_MODAL);
+                        VBox dialogVbox = new VBox(c1.graphRatings());
+                        dialogVbox.getChildren().add(new Text("Graph Results"));
+                        Scene dialogScene = new Scene(dialogVbox, 300, 200);
+                        dialog.setScene(dialogScene);
+                        dialog.show();
+                    }
+                });
+
+
+
+
+
+
         ///FilterInExactMatch Dialog and button handling
 
         // Create the custom dialog.
@@ -293,7 +354,7 @@ public class Main extends Application {
         ButtonType loginButtonType = new ButtonType("Filter", ButtonBar.ButtonData.OK_DONE);
         filterInExactMatchDialog.getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
 
-        // Create the username and password labels and fields.
+        // Create the labels and fields.
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
@@ -325,9 +386,9 @@ public class Main extends Application {
         TextField value = new TextField();
         value.setPromptText("Value");
 
-        grid.add(new Label("Username:"), 0, 0);
+        grid.add(new Label("Attribute:"), 0, 0);
         grid.add(attribute, 1, 0);
-        grid.add(new Label("Password:"), 0, 1);
+        grid.add(new Label("Value:"), 0, 1);
         grid.add(value, 1, 1);
 
         // Enable/Disable login button depending on whether a username was entered.
@@ -384,10 +445,18 @@ public class Main extends Application {
 
 
 
-        ///VBox to hold all buttons
+        ///VBox to hold buttons
         VBox buttons = new VBox();
         buttons.setSpacing(10);
-        buttons.getChildren().addAll(csvInputButton, resetButton, clearButton, filterRatingButton, filterInExactMatchButton);
+        buttons.getChildren().addAll(csvInputButton, resetButton, clearButton, filterRatingButton,
+                filterInExactMatchButton);
+
+
+
+        ///VBox to hold all buttons 2
+        VBox buttons2 = new VBox();
+        buttons2.setSpacing(10);
+        buttons2.getChildren().addAll(averageButton, totalButton, btn);
 
 
 
@@ -400,6 +469,8 @@ public class Main extends Application {
         ///pane.addColumn(0, selection);
         // Add the Buttons to the GridPane at position 1
         pane.addColumn(1, buttons);
+        pane.addColumn(2, buttons2);
+        pane.addColumn(3, logging);
 
 
 
@@ -412,6 +483,7 @@ public class Main extends Application {
             );
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         table.setEditable(true);
+
 
 
         final VBox vbox = new VBox();
